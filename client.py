@@ -34,7 +34,7 @@ while True:
             pass
         # process.stdin.flush()
 
-        process = subprocess.Popen(cmd.split(), shell=True, stdin=subprocess.PIPE,
+        process = subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE,
                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                    universal_newlines=True)
 

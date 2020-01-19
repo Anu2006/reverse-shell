@@ -46,8 +46,8 @@ def send_data(conn):
                     main()
 
     except KeyboardInterrupt:
-        print(date(), Fore.YELLOW + 'Exiting....')
-        conn.send('exiting123'.decode())
+        print('\n', date(), Fore.YELLOW + 'Exiting....')
+        conn.send('exiting123'.encode())
 
         # while not (out := sock.recv(10000).decode()):
         #     continue
