@@ -34,15 +34,21 @@ def connect():
 
 
 def send_data(conn):
-    while True:
-        cmd = bytes(input(f'{date()} {Fore.LIGHTBLUE_EX} Enter a command: '), 'utf-8')
-        if cmd:
-            try:
-                # print(conn.recv(7))
-                conn.send(cmd)
+    try:
+        while True:
+            cmd = bytes(input(f'{date()} {Fore.LIGHTBLUE_EX} Enter a command: '), 'utf-8')
+            if cmd:
+                try:
+                    # print(conn.recv(7))
+                    conn.send(cmd)
 
-            except socket.error:
-                main()
+                except socket.error:
+                    main()
+
+    except KeyboardInterrupt:
+        print(date(), Fore.YELLOW + 'Exiting....')
+        conn.send('exiting123'.decode())
+
         # while not (out := sock.recv(10000).decode()):
         #     continue
         # print(out)
